@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Search";
+}
+<style>
+    input {
+        margin: 1vh;
+        border-radius: 0.5em;
+        padding-left: 0.5em;
+    }
+
+        input:placeholder-shown {
+            background-color: #ed958e;
+        }
+</style>
+
+@if(Model == null)
+{
+<form method="post" action="~/User/SearchUser">
+    <label>Индекс: </label><input type="number" name="index" /><br />
+    <button type="submit">Поиск</button>
+</form>
+}
+else
+{
+    @await Html.PartialAsync("Found");
+}

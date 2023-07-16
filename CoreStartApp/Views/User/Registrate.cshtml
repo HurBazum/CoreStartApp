@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Registration";
+}
+<style>
+    input{
+        margin: 1vh;
+        border-radius: 0.5em;
+        padding-left: 0.5em;
+    }
+    input:placeholder-shown{
+        background-color: #ed958e;
+    }
+</style>
+@if(Model == null)
+{
+<form method="post" action="~/User/Registrate">
+    <lable>
+        FirstName:
+    </lable>
+    <input type="text" name="FirstName" placeholder="firstName" required><br />
+    <lable>
+        LastName:
+    </lable>
+    <input type="text" name="LastName" placeholder="lastName" required><br />
+    <button type="submit">Registrate</button>
+</form>
+}
+else
+{
+    @await Html.PartialAsync("Thanks");
+}
